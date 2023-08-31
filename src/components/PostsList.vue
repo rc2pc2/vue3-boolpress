@@ -1,10 +1,12 @@
 <template lang="">
-    <h1 class="main-title">
+    <section class="posts-wrapper">
+        <h1 class="main-title">
             Latest Posts:
-    </h1>
-    <div class="posts">
-        <SinglePost class="single-post" v-for="post in posts" :post='post' />
-    </div>
+        </h1>
+        <div class="posts">
+            <SinglePost class="single-post" v-for="post in posts" :post='post' />
+        </div>
+    </section>
 </template>
 
 <script>

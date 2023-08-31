@@ -66,6 +66,12 @@ export default {
                 margin-bottom: 1rem;
             }
 
+            img{
+                width: 100%;
+                height: 10rem;
+                object-fit: cover;
+            }
+
             h6 span{
                 margin-right: 1rem;
             }
