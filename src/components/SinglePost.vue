@@ -1,5 +1,5 @@
 <template lang="">
-    <article class="single-post">
+    <article class="single-post w-100">
         <h2>
             {{ post.title }}
         </h2>
