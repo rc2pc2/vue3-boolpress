@@ -22,6 +22,15 @@ export default {
     }
 }
 </script>
-<style lang="">
+<style lang="scss" scoped>
+    h1.main-title{
+        margin-bottom: 3rem;
+    }
 
+    div.posts{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 </style>
