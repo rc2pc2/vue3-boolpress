@@ -1,39 +1,16 @@
 <template >
-    <div>
-        <h1 class="main-title">
-            Latest Posts:
-        </h1>
-        <div class="posts">
-            <div class="single-post" v-for="post in posts">
-                <h2>
-                    {{ post.title }}
-                </h2>
-                <h3>
-                    Written by: {{ post.user.name }}
-                </h3>
-                <h4 :style="'color:' + post.category.color + ';'">
-                    Category: {{ post.category.name }}
-                </h4>
-                <h5>
-                    {{ post.slug }}
-                </h5>
-                <h6>
-                    <span v-for="tag in post.tags" :style="'color:' + tag.color + ';'">#{{ tag.name }} </span>
-                </h6>
-                <p>
-                    {{ post.content.substr(0, 250) }}
-                </p>
-            </div>
-        </div>
-    </div>
+    <PostsList :posts="posts" />
 </template>
 
 <script>
+import PostsList from './PostsList.vue';
 import axios from 'axios';
 
 export default {
     name: 'AppMain',
-
+    components : {
+        PostsList
+    },
     data() {
         return {
             posts : [],
@@ -76,7 +53,7 @@ export default {
         align-items: center;
         flex-wrap: wrap;
 
-        div.single-post{
+        .single-post{
             width: calc((100% / 2) - 1rem);
             border-radius: 1rem;
             padding: 1rem;
