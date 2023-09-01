@@ -3,6 +3,10 @@
         <h1 class="main-title">
             Latest Posts:
         </h1>
+        <div>
+            <input type="text" id="searchText" v-model="searchText" @keyup.enter="newSearch(searchText)">
+            <button @click="newSearch(searchText)">search</button>
+        </div>
         <nav class="pagination">
             <li class="prev" @click="prevPage" v-if="prevPageUrl">
                 Previous
@@ -33,16 +37,23 @@ export default {
             nextPageUrl : '',
             currentPageNo: '',
             prevPageUrl : '',
+            searchText : '',
             apiUrl : 'http://127.0.0.1:8000/api/posts'
         }
     },
 
     methods: {
-        getPosts(apiUrl = this.apiUrl){
+        getPosts(apiUrl = this.apiUrl, titleQuery = false){
             // recuper i miei post e popolo la variabile posts
-            axios.get(apiUrl)
+            const params = {}
+            if (titleQuery) {
+                params.search = titleQuery;
+            }
+            // console.log(params);
+
+            axios.get(apiUrl , { params })
             .then((response) => {
-                console.log(response)
+                // console.log(response)
                 this.posts = response.data.results.data;
                 this.nextPageUrl = response.data.results.next_page_url;
                 this.prevPageUrl = response.data.results.prev_page_url;
@@ -62,10 +73,15 @@ export default {
             this.getPosts(this.prevPageUrl);
         },
 
+        newSearch(titleToSearch){
+            // console.log(titleToSearch);
+            this.getPosts(this.apiUrl, titleToSearch);
+        }
+
     },
 
     created(){
-        this.getPosts();
+        this.getPosts(this.apiUrl);
     }
 }
 
