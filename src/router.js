@@ -5,6 +5,7 @@ import AboutUs from './pages/AboutUs.vue';
 import HomePage from './pages/HomePage.vue';
 import Posts from './pages/Posts.vue';
 import PostShow from './pages/PostShow.vue';
+import ContactUs from './pages/ContactUs.vue';
 
 
 const router = createRouter({
@@ -19,6 +20,11 @@ const router = createRouter({
             path: '/about-us',
             name : 'about',
             component : AboutUs,
+        },
+        {
+            path: '/contact-us',
+            name : 'contact-us',
+            component : ContactUs,
         },
         {
             path: '/posts',

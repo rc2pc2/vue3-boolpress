@@ -27,6 +27,10 @@ export default {
                     route: 'posts.index',
                     name: 'Posts'
                 },
+                {
+                    route: 'contact-us',
+                    name: 'Contact us'
+                }
             ]
         }
     },
